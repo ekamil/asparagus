@@ -1,5 +1,8 @@
 package pl.essekkat.asparagus;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.*;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -11,6 +14,7 @@ import java.util.stream.Collectors;
  * Created by Kamil Essekkat on 13.12.15.
  */
 public class TimedAsparagus<T> implements Asparagus<T> {
+    private final static Logger LOG = LoggerFactory.getLogger(TimedAsparagus.class);
     private final Lock lock;
     private final int quietPeriod;
     private final Map<T, Long> incoming;
@@ -110,7 +114,13 @@ public class TimedAsparagus<T> implements Asparagus<T> {
         eden.forEach(incoming::remove);
         // one lock could be released
         survivor.addAll(eden);
+        if (!eden.isEmpty())
+            afterPromotion(eden.size());
         this.lock.unlock();
+    }
+
+    protected void afterPromotion(int cnt) {
+        LOG.debug("{} elements where promoted", cnt);
     }
 
     @Override

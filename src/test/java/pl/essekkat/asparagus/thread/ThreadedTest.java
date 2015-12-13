@@ -1,5 +1,6 @@
 package pl.essekkat.asparagus.thread;
 
+import org.mockito.Mockito;
 import org.testng.annotations.Test;
 import pl.essekkat.asparagus.Asparagus;
 
@@ -27,8 +28,27 @@ public class ThreadedTest {
         Asparagus<String> a = new ManagedTimedAsparagus<>(50);
         a.add("a");
         a.add("b");
-        Thread.sleep(52);
+        Thread.sleep(60);
         a.add("c");
-        assertThat("All available", a.size(), is(2));
+        assertThat("Two available", a.size(), is(2));
+    }
+
+    @Test
+    public void callback() throws InterruptedException {
+        Cons m = Mockito.mock(Cons.class);
+        ManagedTimedAsparagus<String> a = new ManagedTimedAsparagus<>(50);
+        a.registerCallback(m::on);
+
+        a.add("a");
+        a.add("b");
+        Thread.sleep(100);
+        a.add("c");
+        assertThat("Two available", a.size(), is(2));
+        Mockito.verify(m, Mockito.calls(1));
+    }
+
+    class Cons {
+        void on(Integer i) {
+        }
     }
 }

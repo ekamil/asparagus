@@ -27,6 +27,7 @@
         <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <mockito-all.version>2.0.2-beta</mockito-all.version>
         <slf4j.verion>1.7.12</slf4j.verion>
         <testng.version>6.9.9</testng.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -38,11 +39,24 @@
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.verion}</version>
         </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-jdk14</artifactId>
+            <version>${slf4j.verion}</version>
+            <scope>test</scope>
+        </dependency>
 
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest-all</artifactId>
             <version>${hamcrest.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>${mockito-all.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>

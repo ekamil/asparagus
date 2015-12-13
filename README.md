@@ -25,3 +25,15 @@ Thread.sleep(51);
 a.size() == 2;
 ~~~~
 
+### Callbacks
+
+ManagedTimedAsparagus can call function(s) after successful promotions.
+Look into pl.essekkat.asparagus.thread.ThreadedTest.callback.
+
+
+## Future plans
+
+ * Overflow controls
+ * Persistent store for queues
+ * Inter-JVM synchronization (JGroups?)
+ * More tests
