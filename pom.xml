@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>pl.essekkat</groupId>
+    <artifactId>asparagus</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <description>
+        Generational, self-governing set implementation.
+    </description>
+
+    <developers>
+        <developer>
+            <email>kamil@essekkat.pl</email>
+        </developer>
+    </developers>
+    <scm>
+        <developerConnection>git@bitbucket.org:ekamil/asparagus.git</developerConnection>
+    </scm>
+
+    <properties>
+        <mockito.version>2.0.31-beta</mockito.version>
+        <testng.version>6.9.9</testng.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
