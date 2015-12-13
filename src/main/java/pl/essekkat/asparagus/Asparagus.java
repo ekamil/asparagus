@@ -1,5 +1,8 @@
 package pl.essekkat.asparagus;
 
+import java.util.Optional;
+import java.util.Set;
+
 /**
  * <p>A set with the notion of quiet period.</p>
  * <p>This quiet period will be defined as:
@@ -42,7 +45,13 @@ public interface Asparagus<T> {
      *
      * @return An element eligible for retrieval.
      */
-    T pop();
+    Optional<T> pop();
+
+    /**
+     * @param i Number of elements to {@literal pop} from the collection.
+     * @return At most {@literal i} T objects.
+     */
+    Set<T> pop(int i);
 
     /**
      * @return Quiet period current value in milliseconds.

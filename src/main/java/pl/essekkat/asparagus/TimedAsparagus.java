@@ -1,9 +1,6 @@
 package pl.essekkat.asparagus;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
@@ -71,8 +68,30 @@ public class TimedAsparagus<T> implements Asparagus<T> {
         this.lock.unlock();
     }
 
-    public T pop() {
-        return survivor.iterator().next();
+    public Optional<T> pop() {
+        if (this.survivor.isEmpty())
+            return Optional.empty();
+
+        this.lock.lock();
+        T elem = survivor.iterator().next();
+        survivor.remove(elem);
+        this.lock.unlock();
+
+        return Optional.of(elem);
+    }
+
+    @Override
+    public Set<T> pop(int i) {
+        if (i < 1)
+            throw new IllegalArgumentException("Cannot pop less than one elements.");
+
+        this.lock.lock();
+        final Set<T> result = this.survivor.stream()
+                .limit(i)
+                .collect(Collectors.toSet());
+        this.survivor.removeAll(result);
+        this.lock.unlock();
+        return result;
     }
 
     /**
