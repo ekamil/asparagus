@@ -20,4 +20,6 @@ public interface EntryStore<T extends Serializable> {
     Collection<Entry<T>> findByCollectionAndGeneration(String collectionName, Generation generation);
 
     boolean exists(String collectionName, int valueHash);
+
+    boolean lock(String collectionName);
 }
