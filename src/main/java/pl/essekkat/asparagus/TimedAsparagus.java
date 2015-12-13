@@ -59,7 +59,7 @@ public class TimedAsparagus<T> implements Asparagus<T> {
     @Override
     public void add(T elem) {
         this.lock.lock();
-        if (!survivor.contains(elem))
+        if (elem != null && !survivor.contains(elem))
             this.incoming.put(elem, getMillis());
         this.lock.unlock();
     }
