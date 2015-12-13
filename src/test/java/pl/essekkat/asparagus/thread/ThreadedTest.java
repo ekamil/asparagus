@@ -1,6 +1,7 @@
-package pl.essekkat.asparagus;
+package pl.essekkat.asparagus.thread;
 
 import org.testng.annotations.Test;
+import pl.essekkat.asparagus.Asparagus;
 
 import java.util.Optional;
 
