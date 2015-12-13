@@ -13,9 +13,10 @@ public class Entry<T extends Serializable> {
     private final String collectionName;
     private final Generation generation;
     private final T value;
-    private final int mtime;
+    private final int valueHash;
+    private final long mtime;
 
-    public Entry(String collectionName, Generation generation, T value, int mtime) {
+    public Entry(String collectionName, Generation generation, T value, long mtime) {
         Objects.requireNonNull(collectionName, "Collection name is needed to correlate with Asparagus");
         Objects.requireNonNull(generation);
         Objects.requireNonNull(value, "Nulls are not supported by Asparagus");
@@ -23,6 +24,7 @@ public class Entry<T extends Serializable> {
         this.generation = generation;
         this.value = value;
         this.mtime = mtime;
+        valueHash = value.hashCode();
     }
 
     public Generation getGeneration() {
@@ -33,7 +35,7 @@ public class Entry<T extends Serializable> {
         return value;
     }
 
-    public int getMtime() {
+    public long getMtime() {
         return mtime;
     }
 
@@ -61,7 +63,11 @@ public class Entry<T extends Serializable> {
         int result = getCollectionName().hashCode();
         result = 31 * result + getGeneration().hashCode();
         result = 31 * result + getValue().hashCode();
-        result = 31 * result + getMtime();
+        result = (int) (31 * result + getMtime());
         return result;
+    }
+
+    public int getValueHash() {
+        return valueHash;
     }
 }
