@@ -21,4 +21,14 @@ public class ThreadedTest {
         Thread.sleep(101);
         assertThat("All available", a.size(), is(3));
     }
+
+    @Test
+    public void two() throws InterruptedException {
+        Asparagus<String> a = new ManagedTimedAsparagus<>(50);
+        a.add("a");
+        a.add("b");
+        Thread.sleep(52);
+        a.add("c");
+        assertThat("All available", a.size(), is(2));
+    }
 }

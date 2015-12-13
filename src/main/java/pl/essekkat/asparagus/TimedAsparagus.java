@@ -6,7 +6,7 @@ import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
 
 /**
- * Basic implementation. Only time constraint and promote method has to be called manually.
+ * Basic implementation. Only time constraint. Also promote method has to be called manually.
  * <p/>
  * Created by Kamil Essekkat on 13.12.15.
  */
