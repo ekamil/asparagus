@@ -6,7 +6,7 @@
 
     <groupId>pl.essekkat</groupId>
     <artifactId>asparagus</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1-SNAPSHOT</version>
 
     <description>
         Generational, self-governing set implementation.
