@@ -65,6 +65,11 @@ public class TimedAsparagus<T> implements Asparagus<T> {
     }
 
     @Override
+    public void addAll(Collection<? extends T> elems) {
+        elems.forEach(this::add);
+    }
+
+    @Override
     public void remove(T elem) {
         this.lock.lock();
         this.incoming.remove(elem);

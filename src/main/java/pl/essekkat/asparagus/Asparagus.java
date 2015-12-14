@@ -1,5 +1,6 @@
 package pl.essekkat.asparagus;
 
+import java.util.Collection;
 import java.util.Optional;
 import java.util.Set;
 
@@ -32,6 +33,7 @@ public interface Asparagus<T> {
      * @param elem Element to add.
      */
     void add(T elem);
+    void addAll(Collection<? extends T> elems);
 
     /**
      * Deletes the given element. If the element is subsequently added it's quiet period
