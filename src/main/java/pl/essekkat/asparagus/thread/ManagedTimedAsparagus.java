@@ -12,8 +12,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 
 /**
- * Timed asparagus that manages it's own state in a housecleaning thread.
- * <p/>
+ * <p>Timed asparagus that manages it's own state in a housecleaning thread.
+ * </p>
  * Created by Kamil Essekkat on 13.12.15.
  */
 public class ManagedTimedAsparagus<T> extends TimedAsparagus<T> {

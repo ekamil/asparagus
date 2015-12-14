@@ -5,21 +5,22 @@ import java.util.Set;
 
 /**
  * <p>A set with the notion of quiet period.</p>
- * <p>This quiet period will be defined as:
+ * This quiet period will be defined as:
  * Given: <ol>
  * <li>there is an element E and Asparagus A</li>
  * <li>at time T1 A.add(E)</li>
  * <li>at time T2 E is retrieved, e.g. by use of iterator()</li>
  * </ol>
  * Then: T2 - T1 is greater than or equal to quiet period.
- * </p>
+ * <p>
  * Quiet period must be positive.
  * If E is inserted more than once, the latest insertion time is used.
  * Subclassed may modify the strength of quiet period enforcement, but with a clear warning.
- * <p/>
+ * </p>
+ * <p>
  * The process of making element available for retrieval will be called promotions.
  * The reverse - degradation.
- * <p/>
+ * </p>
  * Created by Kamil Essekkat on 13.12.15.
  */
 public interface Asparagus<T> {
