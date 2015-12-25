@@ -1,4 +1,5 @@
 # Asparagus
+[![Build Status](https://travis-ci.org/ekamil/asparagus.svg)](https://travis-ci.org/ekamil/asparagus)
 
 Time-aware set implementations. Can be used to implement throttles with quiet period.
 
