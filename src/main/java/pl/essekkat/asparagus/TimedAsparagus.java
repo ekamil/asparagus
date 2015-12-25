@@ -57,24 +57,35 @@ public class TimedAsparagus<T> implements Asparagus<T> {
     }
 
     @Override
-    public void add(T elem) {
+    public boolean add(T elem) {
+        boolean added = false;
         this.lock.lock();
-        if (!survivor.contains(elem))
+        if (!survivor.contains(elem)) {
             this.incoming.put(elem, getMillis());
+            added = true;
+        }
         this.lock.unlock();
+        return added;
     }
 
     @Override
-    public void addAll(Collection<? extends T> elems) {
-        elems.forEach(this::add);
+    public boolean addAll(Collection<? extends T> elems) {
+        return elems.stream()
+                .map(this::add)
+                .anyMatch(b -> b);
     }
 
     @Override
-    public void remove(T elem) {
+    public boolean remove(Object elem) {
+        boolean changed = false;
         this.lock.lock();
-        this.incoming.remove(elem);
-        this.survivor.remove(elem);
-        this.lock.unlock();
+        try {
+            changed = this.incoming.remove(elem) != null;
+            changed = changed || this.survivor.remove(elem);
+        } finally {
+            this.lock.unlock();
+        }
+        return changed;
     }
 
     public Optional<T> pop() {
@@ -131,5 +142,66 @@ public class TimedAsparagus<T> implements Asparagus<T> {
     @Override
     public int size() {
         return survivor.size();
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return this.incoming.isEmpty() && this.survivor.isEmpty();
+    }
+
+    @Override
+    public boolean contains(Object o) {
+        return this.incoming.containsKey(o) || this.survivor.contains(o);
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return this.survivor.iterator();
+    }
+
+    @Override
+    public Object[] toArray() {
+        return this.survivor.toArray();
+    }
+
+    /**
+     * This method is unsupported.
+     */
+    @Override
+    public <T1> T1[] toArray(T1[] a) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean containsAll(Collection<?> c) {
+        return c.stream()
+                .map(this::contains)
+                .anyMatch(b -> b);
+    }
+
+    @Override
+    public boolean removeAll(Collection<?> c) {
+        return c.stream()
+                .map(this::remove)
+                .anyMatch(b -> b);
+    }
+
+    /**
+     * This method is unsupported.
+     */
+    @Override
+    public boolean retainAll(Collection<?> c) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void clear() {
+        this.lock.lock();
+        try {
+            this.incoming.clear();
+            this.survivor.clear();
+        } finally {
+            this.lock.unlock();
+        }
     }
 }

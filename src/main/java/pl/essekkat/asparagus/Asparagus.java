@@ -24,7 +24,7 @@ import java.util.Set;
  * </p>
  * Created by Kamil Essekkat on 13.12.15.
  */
-public interface Asparagus<T> {
+public interface Asparagus<T> extends Collection<T> {
     /**
      * Adds element.
      * Initially it will be unavailable.
@@ -32,8 +32,11 @@ public interface Asparagus<T> {
      *
      * @param elem Element to add.
      */
-    void add(T elem);
-    void addAll(Collection<? extends T> elems);
+    @Override
+    boolean add(T elem);
+
+    @Override
+    boolean addAll(Collection<? extends T> elems);
 
     /**
      * Deletes the given element. If the element is subsequently added it's quiet period
@@ -41,7 +44,8 @@ public interface Asparagus<T> {
      *
      * @param elem Element to be removed.
      */
-    void remove(T elem);
+    @Override
+    boolean remove(Object elem);
 
     /**
      * Returns and removes an element, can (but doesn't have to) be an oldest element.
@@ -74,5 +78,6 @@ public interface Asparagus<T> {
     /**
      * @return The number of available objects.
      */
+    @Override
     int size();
 }

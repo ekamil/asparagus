@@ -4,7 +4,7 @@
 
     <groupId>pl.essekkat</groupId>
     <artifactId>asparagus</artifactId>
-    <version>1.1</version>
+    <version>1.2</version>
 
     <name>Asparagus</name>
     <description>A collection with quiet period.
@@ -177,8 +177,8 @@
             </pluginRepositories>
             <distributionManagement>
                 <repository>
-                    <id>bintray-repo-maven-example</id>
-                    <url>https://api.bintray.com/maven/${bintray.user}/${bintray.repo}/${project.groupId}.${project.artifactId}/;publish=1</url>
+                    <id>bintray</id>
+                    <url>https://api.bintray.com/maven/ekamil/maven/${project.groupId}.${project.artifactId}/;publish=1</url>
                 </repository>
             </distributionManagement>
         </profile>
