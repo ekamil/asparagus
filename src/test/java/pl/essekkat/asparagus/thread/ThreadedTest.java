@@ -28,7 +28,7 @@ public class ThreadedTest {
         Asparagus<String> a = new ManagedTimedAsparagus<>(50);
         a.add("a");
         a.add("b");
-        Thread.sleep(60);
+        Thread.sleep(100);
         a.add("c");
         assertThat("Two available", a.size(), is(2));
     }
