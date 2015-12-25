@@ -32,6 +32,9 @@ a.size() == 2;
 ManagedTimedAsparagus can call function(s) after successful promotions.
 Look into pl.essekkat.asparagus.thread.ThreadedTest.callback.
 
+## Issues
+
+Please use [GitHub Issues](https://github.com/ekamil/asparagus/issues).
 
 ## Future plans
 
