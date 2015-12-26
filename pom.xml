@@ -24,7 +24,6 @@
         </developer>
     </developers>
 
-
     <scm>
         <connection>scm:git:git@github.com:ekamil/asparagus.git</connection>
         <developerConnection>scm:git:git@github.com:ekamil/asparagus.git</developerConnection>
