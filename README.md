@@ -18,6 +18,16 @@ In other words: the consumer wants elements that are now in their [quiet period]
 
 Only SLF4J but used *very* sparingly.
 
+## Maven
+
+~~~ xml
+<dependency>
+  <groupId>pl.essekkat</groupId>
+  <artifactId>asparagus</artifactId>
+  <version>1.2.1</version>
+</dependency>
+~~~
+
 ## Usage
 
 ~~~~ java
