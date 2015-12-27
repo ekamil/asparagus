@@ -1,6 +1,6 @@
 # Asparagus
 [![Build Status](https://travis-ci.org/ekamil/asparagus.svg)](https://travis-ci.org/ekamil/asparagus)
-[![Download](https://api.bintray.com/packages/ekamil/maven/pl.essekkat.asparagus/images/download.svg)](https://bintray.com/ekamil/maven/pl.essekkat.asparagus/_latestVersion)
+[![Maven Central](https://img.shields.io/maven-central/v/pl.essekkat/asparagus.svg)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22pl.essekkat%22%20AND%20a%3A%22asparagus%22)
 [![License](https://img.shields.io/github/license/ekamil/asparagus.svg)](http://ekamil.mit-license.org/)
 
 Time-aware set implementations. Can be used to implement throttles with quiet period.

@@ -165,29 +165,5 @@
                 </plugins>
             </build>
         </profile>
-        <profile>
-            <id>bintray</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <pluginRepositories>
-                <pluginRepository>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                    <id>bintray-ekamil-maven</id>
-                    <name>bintray-plugins</name>
-                    <url>http://dl.bintray.com/ekamil/maven</url>
-                </pluginRepository>
-            </pluginRepositories>
-            <distributionManagement>
-                <repository>
-                    <id>bintray</id>
-                    <url>
-                        https://api.bintray.com/maven/ekamil/maven/${project.groupId}.${project.artifactId}/;publish=1
-                    </url>
-                </repository>
-            </distributionManagement>
-        </profile>
     </profiles>
 </project>
