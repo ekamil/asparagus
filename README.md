@@ -3,7 +3,6 @@
 [![Maven Central](https://img.shields.io/maven-central/v/pl.essekkat/asparagus.svg)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22pl.essekkat%22%20AND%20a%3A%22asparagus%22)
 [![License](https://img.shields.io/github/license/ekamil/asparagus.svg)](http://ekamil.mit-license.org/)
 [![Stories in Ready](https://badge.waffle.io/ekamil/asparagus.svg?label=ready&title=Ready)](http://waffle.io/ekamil/asparagus)
-[![Coverage Status](https://coveralls.io/repos/github/ekamil/asparagus/badge.svg?branch=master)](https://coveralls.io/github/ekamil/asparagus?branch=master)
 
 Time-aware set implementations. Can be used to implement throttles with quiet period.
 
