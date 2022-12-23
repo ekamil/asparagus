@@ -60,7 +60,7 @@
         <mockito-all.version>2.0.2-beta</mockito-all.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <slf4j.verion>1.7.12</slf4j.verion>
-        <testng.version>6.9.9</testng.version>
+        <testng.version>7.7.0</testng.version>
     </properties>
 
     <dependencies>
